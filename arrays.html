@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>arrays</title>
+</head>
+<body>
+    <script>
+        // def-the variables which can store multiple variable 
+        // ex= 
+        let fruits=[ '7', 'banana','cherry'];
+        // console.log(fruits);
+        // ascessing the values 
+        
+        
+        // console.log(fruits[1]);
+        // changing the values
+        let numbers=[5,6,9,6,6,45,35,446];
+        let a=numbers[5]=10;
+        console.log(numbers);
+        // note=arrays are mutable but strings are not.
+        // type of array us object!
+        const n=[2,3,5,7,8,44,75,5,9]
+        console.log(typeof n);//object
+
+        // arrays methods
+        //to covert string into comma separated valyues we sue toString()
+        let arr=[1, 2 ,34, 5, 6]
+        console.log(arr.toString());
+        // to convert back from string to array use split() method
+        console.log(arr.toString().split(","));
+        // to join all the array element using a separator we use  join() method
+        let car=[ "Audi", "BMW","Mercedes",'bentley',"koinigseg"];
+        console.log(`the cars we have are ${car.join(" sedan 007 ")}`)
+        //to remove the last element from the array and permanently changes the original array
+        console.log(car.pop());
+        console.log(car);
+        //to add a new element at the end of the array
+        car.push("lamborghini");
+console.log(car);
+//to remove the element form the first we will use shift() and also it wil  change the orginal array 
+console.log(car.shift());
+console.log(car);
+// unshift adds the element to the beginning returns new array length unshift()
+//delete will  delete the property from an object or array with proper specification of indexes delete car[1]
+//to join 2 array s we will sue concat
+// concat
+let  x = ["I LOVE"];
+let y=["japanease"];
+let z=["waifus"];
+j=x.concat(y,"are cute","and so is ",z)
+console.log(j);
+ //will read it like this concat x with y and z it will return a new array and will not change the existing array 
+ //sorting in ascending order
+let v=[4,7,8,9,6,9,3,2];
+ console.log(v.sort());  // sorts the v array and modify it as well
+//  sort
+// sorting in descending order
+// console.log(v.sort((a,b)=> b-a));
+// splice is usd to add a item to and array 
+//splice(index,how many items you want to remove,item1,item2...)//syntax of splice
+console.log(v.splice(3,69,96));// returns the delted element and modifies the original array 
+console.log(v);
+//slcice slcie out a piece from an array and make anathor array 
+let fruit=['apple','banana','cherry','grape'];
+console.log(fruit.slice(2)); //it will remove the elements til lthe index number provided till length-1
+//reverse will simpley reverses the array
+console.log(fruit.reverse());
+console.log(fruit);//modifies the original array
+// reverse,shift,unshift,splice,sort,pop,push will modify the original array
+
+let customers = [
+    { name: 'John Doe', email: 'john@example.com' },
+    { name: 'Jane Smith', email: 'jane@example.com' },
+    { name: 'Mike Johnson', email: 'mike@example.com' }
+];
+function sendThanks(customer){
+    console.log( `sending thankyou email to ${customer.name} on ${customer.email}`);
+}
+customers.forEach(customer => {
+    sendThanks(customer);
+});
+let carCompanies = [
+    { name: "Toyota" },
+    { name: "Honda" },
+    { name: "Ford" },
+    { name: "Chevrolet" },
+    { name: "Volkswagen" },
+    { name: "BMW" },
+    { name: "Mercedes-Benz" },
+    { name: "Audi" },
+    { name: "Hyundai" },
+    { name: "Nissan" },
+    { name: "Tesla" },
+    { name: "Volvo" },
+    { name: "Fiat" },
+    { name: "Kia" },
+    { name: "Subaru" }
+];
+
+let peopleNames = [
+    { name: "John Doe" },
+    { name: "Jane Smith" },
+    { name: "Mike Johnson" },
+    { name: "Emily Brown" },
+    { name: "Alex Davis" },
+    { name: "Sarah Wilson" },
+    { name: "Michael Lee" },
+    { name: "Jessica Taylor" },
+    { name: "David Martinez" },
+    { name: "Jennifer Garcia" }
+];
+
+function confirmMsg(carCompany,pName){
+    console.log(`customer ${peopleNames.name}purchase the card of ${carCompany.name} company congratulations to you enjoy the rides`);
+}
+carCompanies.forEach((carCompany,index) => {
+    confirmMsg(carCompany,peopleNames[index]);
+    
+});
+// Map
+// creates a ew array by performing some operations
+let number = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+number.map((value)=>{
+    console.log(value*value); 
+})
+number.map((index)=>{
+    console.log(index**2);
+})
+// filter
+let avengers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+function divisibleCheck(avenger){
+    return avenger.filter(avengers=> avengers%2==0);
+
+}
+if(divisibleCheck(avengers)){
+    // alert(`avengers assemble at coordinates  ${divisibleCheck(avengers)}`);
+}
+// reduce=redues an array into a single number
+
+let natasha= [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+let sum=(a,b)=>{
+    return  a*b;
+}
+console.log(natasha.reduce(sum));
+
+
+
+    
+    </script>
+</body>
+</html>
