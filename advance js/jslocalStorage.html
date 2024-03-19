@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Storage</title>
+</head>
+<body>
+    
+    <input type="text"  class="Name"placeholder="Enter your Name">
+    <h2>My name <img src="" alt="">s <span class="Myname">
+    </span></h2>
+    <input type="text"class="ageElement" placeholder="Enter your ageElement">
+<h2>My Age is <span class="Age"></span></h2>
+
+<script>
+    const nameElement=document.querySelector('.MyName')
+    const name=document.querySelector('.Myname')
+    const inputFeild=document.querySelector('.Name')
+   
+    // name.innerText=localStorage.getItem('myName')
+    // inputFeild.addEventListener('input',function(event){
+    //     // console.log(event.target.value);
+    //     name.innerText=localStorage.getItem('myName')
+    //     localStorage.setItem('myName',event.target.value)
+    // })
+    // const ageElements=document.querySelector('.ageElement')
+    // const age=document.querySelector('.Age')
+    // age.innerText=localStorage.getItem('myAge')
+    // ageElements.addEventListener('input',function(e){
+    //     age.innerText=localStorage.getItem('myAge')
+    //     localStorage.setItem('myAge',e.target.value)
+    // })
+    const myData={
+       name='' ,
+       age='',
+    }
+    inputFeild.addEventListener('input',function(event){
+    myData.name=event.target.value;
+    localStorage.setItem('myData',JSON.stringify(myData))
+    })
+
+</script>
+</body>
+</html>

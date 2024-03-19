@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>callBacks in js</title>
+</head>
+<body>
+    <h1>callbacks  in javascript</h1>
+    <h5>a function is passed as an argument to ananthor function</h5>
+    <p>these are sued to han;e async and sync operations
+        <li>Reading a file</li>
+        <li>Network Request</li>
+        <li>interacting with databases</li>
+        <h1 id ='first'></h1>
+    </p>
+    <script>
+       
+        
+       
+
+//  function instagram(instaId,getSecondData){
+//     setTimeout(()=>{
+//         console.log('data',instaId);
+//         if(getSecondData){
+//             getSecondData(2);
+//         }
+     
+//     },2000)//now its a async fucntion
+//  }
+//  instagram(1,(data)=>{
+//     console.log(data)
+//  });
+function instagram(instaId,secondID){
+    setTimeout(()=>{
+        console.log('data',instaId);
+        if(secondID){
+            secondID()
+        }
+
+
+    },2000)}
+    instagram(1, () => {
+    instagram(2, () => {
+        instagram(3, () => {
+            instagram(4, () => {
+                instagram(5);
+            });
+        });
+    });
+});//in creating this it will become very fifficult to understand this code hence we generally avoid this and it is known as callback hell
+ //now we want that the we want to use anathor data after this one so we will use call bakcs in this case we will pass the next function in the setTimeout and call the function in the call back function but we will use a arrow function it will act as a proper piece of code hence we dont have aheadache of using the fucntion with the () parenthesesis.
+
+    </script>
+</body>
+</html>

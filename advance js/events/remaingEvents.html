@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="changeMw(this, 'green', 'red','100px','60px')">Click me!</button>
+    <button onclick="changeMw(this, 'yellow', 'black','120px','80px')">Click me!</button>
+    <button onclick="changeMw(this, 'green', 'blue','140px','100px')">Click me!</button>
+<p>note on this :this is a selector whihc is used to selct the leements ona specific event and used when there is no id or classes in that element </p>
+<h1>innerhtml </h1>
+<p>this will work good with a seloector like document.body like that</p>
+    <script>
+       function changeMw(button, color="white", backgroundColor,height,width){//optional parameter=its the parameter wihci is often known as defult parameter which will be used when there is no value from the argument 
+           button.style.color = color;
+           button.style.backgroundColor = backgroundColor;
+           button.style.height=height;
+           button.style.width=width;
+        }
+    </script>
+</body>
+</html>

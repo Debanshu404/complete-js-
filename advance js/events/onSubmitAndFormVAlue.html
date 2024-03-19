@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form on Submit</title>
+</head>
+<body>
+
+<form onsubmit="submit(event)">
+    <input type="text" id="text" placeholder="Type your name">
+    <input type="email" id="email" placeholder="Enter your email"> 
+    <input type="password" id="pass" placeholder="Enter your password"> 
+    <button type="submit">Submit</button>
+</form>
+<script>
+    function submit(event) {
+        event.preventDefault(); 
+        let name = document.getElementById("text").value;
+        let email = document.getElementById("email").value;
+        let password = document.getElementById("pass").value;
+        console.log(`The user ${name} has signed up`);    
+    }
+</script>   
+</body>
+</html>
+

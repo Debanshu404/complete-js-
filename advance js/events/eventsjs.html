@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>button and webpage colour change</title>
+    <style>
+        @keyframes demo {
+            0%{background-color: red;}
+            20%{background-color: rgb(0, 255, 81);}
+            40%{background-color: rgb(46, 9, 255);}
+            60%{background-color: rgb(200, 255, 0);}
+            80%{background-color: rgb(200, 0, 255);}
+            100%{background-color: rgb(255, 0, 179);}
+        }
+        @keyframes title{
+            0%{background-color: rgb(234, 255, 0);}
+            20%{background-color: rgb(41, 8, 255);}
+            40%{background-color: rgb(255, 9, 9);}
+            60%{background-color: rgb(200, 255, 0);}
+            80%{background-color: rgb(0, 255, 17);}
+            100%{background-color: rgb(0, 213, 255);}
+        }
+        @keyframes btn {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0); }
+}
+    </style>
+</head>
+<body id="body">
+    <h1 id="hello">
+        I am a heading
+    </h1>
+    <!-- <button onclick="page_theme()">click me to change the color of the button</button> -->
+    <div class="box">
+        hey I am a div 
+    </div>
+    <button onclick="page_theme()">click me to change the color of the webpage</button>
+    <button onclick="page_stop()">click me to  stop the colour chanfin g</button>
+    <div class="contianer">
+     <h1 id="second_heading">
+        hey bro change my colour
+     </h1>
+     <button onclick="change_theme('red','black')">Click Me To Change My Colour and background colour</button>
+     <button onclick="change_theme('green','pink')">Click Me To Change My Colour and background colour</button>
+     the name inside the parenthesis of the calling function is called argument and the proess of transfering this vlaue to the main function defiantion is called call by valyue and we can pass more than 1 value
+     <p></p>
+     <button onclick="change_theme('blue','yellow')">Click Me To Change My Colour and background colour</button>
+     <button onclick="change_theme('yellow','red')">Click Me To Change My Colour and background colour</button>
+    <p> we have anthor event known as buttondbl click which will execute the work  when you double click on an element</p>
+    </div>
+    <button ondblclick="change_theme('LightSeaGreen color','cyan')">DOUBLE Click Me To Change My Colour and background colour</button>
+    <p>we have next event knwon as on mosueover and onmouseend</p>
+    <button ondblclick="change_theme('LightSeaGreen color','cyan')" onmouseover="change_theme('crimson','yellow')" onmouseout="change_theme('inherit','inherit')">Click Me To Change My Colour and background colour</button>
+    <p>anathor events are mouse up and mosue down event </p>
+    <button onmousedown="change_theme('purple','cyan')" onmouseup="change_theme('inherit','inherit')">
+<P>Click Me To Change My Colour and background colour</button>
+    mouse down means to click on any element AND HOLD IT AND MISUYE DOWN MENA TO REMOVE THE BUTTON OF THE MOUSE FROM THAT ELEMENT
+</P>
+<P>THE LAST IMP SELTCTOR IS ONCONTEXTMENU SLECTOR</P>
+<button id="context_btn"oncontextmenu="translate()">Right Click Me</button>
+
+
+
+    <script>
+
+       function page_theme(){
+           let body = document.getElementById('body');
+           let hello = document.getElementById("hello");
+           body.style.animation = "demo 4s infinite";
+           hello.style.animation = "title 4s infinite";
+       }
+       function page_stop(){
+           let body = document.getElementById('body');
+           let hello = document.getElementById("hello");
+           body.style.animation = false;
+           hello.style.animation = false;
+       }
+       function change_theme(calor_name,bg_colour){//the name in the function defination taking is known as prameter,note-parameterised variable is asscesible within the function body itself known as local scope we cant ascess it outside the fucntion name
+        heading=document.getElementById("second_heading");
+        heading.style.color=calor_name;
+        heading.style.backgroundColor=bg_colour;
+       }
+       function translate() {
+    let button = document.getElementById("context_btn");
+    button.style.animation = "btn 4s infinite";
+    button.style.backgroundColor="yellow";
+    
+}
+// this button will create the button to trans;late in the designated direction in the css code 
+
+    </script>
+</body>
+</html>

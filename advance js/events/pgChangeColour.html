@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>page colour through js</title>
+</head>
+<body>
+<input  type="color" onchange="change(this)"/> 
+<script>
+      function change(color){
+       let values=color.value;
+       let body=document.body;
+       body.style.backgroundColor=values;
+
+    }
+</script>
+</body>
+</html>

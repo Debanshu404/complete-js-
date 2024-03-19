@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>className and calsslist       
+    </title>
+    <style>
+        .first{
+            color: black;
+            background-color: red;
+        }
+        .chippie{
+            background-color: green;
+        }
+        .large{
+            font-size: 50vh;
+        }
+    </style>
+</head>
+<body>
+    <p>You can test whether the element contains a given class using the classList.contains() method.</p>
+    <div class="first"> hello I am a div</div>
+    <script>
+    let  first =document.querySelector('div');     
+        console.log(first.className);
+        
+    //    first.className+="chippie"//it becomes really a headache to manage the classes as classlist is just a string son doesnt provide any space
+    //    first.classList=first.classList.replace("chappa","chippie")
+       
+       
+       
+       
+       
+    //    className is a simple String
+    //    class list is a object representing  an HTMLCollection of classes on the element.
+       
+        //to add class to the element
+       console.log( first.classList.add("chippie"));
+       first.classList.remove("chippie");
+       first.classList.replace("first","big");
+    //    console.log( first.classList.contains("large"))//returns a boolean vlaue
+    first.classList.toggle("large")
+        
+        // first.classList.add("chappa");
+        </script>
+</body>
+</html>

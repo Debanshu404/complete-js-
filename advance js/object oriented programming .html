@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>classes and oop in js</title>
+</head>
+<body>
+    <H1>NOTES</H1>
+    <p>JAVASCRIPT AND CLASSES!
+        HOTI NAHI THI BUT ABHI BHI NAHI HE !
+        JS IS PRIMARILY A PROTOTYPE BASED LANGUAGE NOT AN OOP LANGUAGE ITS ONLY SYNTACTIC SUGAR ABHI BHI PROTOTYPE CHALTA HE 
+    </p>
+    <UL>
+        <LI><P>OOPS
+
+        </P></LI>
+        <LI>OBJECT
+            COLLECTION OF PROPERTIES AD METHODS 
+            PROPERTIEES= VARIABLES 
+            METHODS=FUCNTIONS
+        </LI>
+        <LI>WHY USE OOPS
+            ISSE PEHLE CODE MESSED UP HO RAHA THA (SPEGGETI CODE )
+            ISKE ANE KE BAD BAKI JS KE FEATURES USE KAR PA RAHE HE EX-SERVICES.
+            <UL>
+                PARTS/COMPONENTS OF OOP OF JS
+                <LI>OBJECT LITERAL(LITERALLY)</LI>
+                <LI>CONSTRUCTOR FUCNTION</LI>
+                <LI>PROTO/PROTOTYPE</LI>
+                <LI>INSTANCES/NEWKEYWORD/THIS ETC</LI>
+                <LI></LI>
+            </UL>
+        </LI>
+        <LI>4 KEYWORDS MDN letter-spacing
+            ABSTRACTION-DETAILS HIDE KAR DENA(EX-FETCH)
+            absctraction example 
+            class vehicle{
+                constructor(make,model){
+                    this.make=make;
+                    this.model=model;
+                    
+                }
+            startEngine(){
+                console.log(`${this.make}'s ${this.model}'s engine has started`)
+            }
+            
+            }
+            
+            const  myvehicle=new vehicle ("kawasaki","ninja300");
+            myvehicle.startEngine();
+
+            ENCAPSULATION-WRAPPING UP THE DATA (actual defination=Encapsulation is the practice of bundling data (attributes) and methods (functions) that operate on that data into a single unit, known as a class. It helps in controlling access to an object's internal state and only exposing a limited interface.)
+            <h1>encapsulation example</h1>
+            <p> class bankAcout{
+                constructor(balance=0){
+                    this._balance=balance;
+                }
+                deposit(amount){
+                    if(amount>0){
+                        this._balance+=amount;
+                        
+                    }
+                }
+                reasult(){
+                    console.log(`${this._balance}`)
+                }
+             }
+            const account=new bankAcout(20);//account banayaa
+            account.deposit(70);//paisa daldiya
+            const balance=account.reasult();//existing paise dikhadiye</p>
+           <p>INHERITANCE-Inheritance allows a new class to inherit properties and methods from an existing class. It promotes code reuse and establishes an "is-a" relationship between classes.</p> 
+           <h1>example of inheritance</h1>
+           <p>class Animal {
+            constructor(name) {
+                this.name = name;
+            }
+        
+            makeSound() {
+                console.log(`${this.name} makes a sound`);
+            }
+        }
+        
+        class Dog extends Animal {
+            makeSound() {
+                console.log(`${this.name} barks`);
+            }
+        }
+        
+        const opAnimal = new Animal("Rottweiler");
+        const dog = new Dog("German Shepherd");
+        
+        opAnimal.makeSound();
+        dog.makeSound();</p>
+            POLYMORPHISM-Polymorphism allows objects of different classes to be treated as objects of a common superclass. It enables the same method to have different implementations in derived classes.
+REMAINING USE CHAT GPT
+
+        </LI>
+        <LI></LI>
+    </UL>
+    <SCRIPT>
+        // OBJECT LITERAL
+        // using of this keyword
+        // for now we sue this to tell browser about the current context
+        const user = {
+    username: "slaeyr",
+    loginCount: 10,
+    signedIn: true,
+
+    userDetails: function () {
+        // console.log(`username: ${this.username}`);
+    }
+}
+
+// console.log(user.loginCount);
+// user.userDetails();
+// new keyword jab use karte he to ek new instance create hota he and wo ek new empty object hota he 
+// 2nd-constructor function call hota he new keyword ke wajah se .
+// 3rd-jo argument and keywords hota he wo sab this ke andar inject ho jata he 
+// 4rth-return akrdo 
+// ham this ko use karke method bhi bana sakte he 
+// agar ham .construcor likhe to hame sari properties dikh jayegi and wo ek function dega main object ke variable ka name.
+
+
+    </SCRIPT>
+
+</body>
+</html>

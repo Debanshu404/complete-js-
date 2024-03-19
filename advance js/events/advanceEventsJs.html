@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final blown events</title>
+</head>
+<body>
+    <h4>so far we have studied various types of events like mouse events keyboard events  and more... </h4><br><h4>but using those is somehow not recommended as it will reduce the scalability of the website when laoding so we will use some of the modern methods for this </h4>
+<h1>we will use event listners in place of events like onclick inside the html never inject js code into html in react its different</h1>
+
+  <p>  event propagation in js  is the process by which an event travels through the DOM from the target element to the document object an they are of two types</p>
+    <h3>
+        there are two types of  event one is event bubbling and the other one is capturing: 
+    </h3>
+    <h1><b>lets take an example  of a button click event:</b></h1>
+    <h2>Amazing image</h2>
+    <div >
+        <ul id="images">
+            <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+            <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" ></li>
+            <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><a style="color: rgb(6, 36, 62);" href="https://google.com" id="google">Google</a></li>
+            <p>other events are mentioned as follows
+                 attachEvent()<br>
+                 jQuery - on<br>
+            
+                <br> type, timestamp, defaultPrevented<br>
+                 target, toElement, srcElement, currentTarget,<br>
+                 clientX, clientY, screenX, screenY<br>
+                 altkey, ctrlkey, shiftkey, keyCode<br>
+            </p>
+
+        </ul>
+   </div>
+   <script>
+    let owl=document.getElementById('owl').onclick= function owl(){
+        // alert("owl clicked");
+    }//most of the time we will avoid this approach due to reduces scalability
+    // we will use the following one 
+    document.getElementById('owl').addEventListener('click',function(event){
+        // alert("owl clicked agian");
+    //    console.log(`the element that was clicked ${event.target}`);
+    },false)//here we also parse a optional vlaue which is true or false which will set at false in default.
+    document.getElementById('owl').addEventListener('click',function(event){
+        // alert("owl clicked two time");
+    //    console.log(`the element that was clicked ${event.target}`);
+    },true)
+    //understanding the bubbling event
+    document.getElementById('images').addEventListener('click',function(event){
+        // console.log("ul clicked")
+    })
+    document.getElementById('owl').addEventListener('click',function(event){
+        // console.log("owl clicked agian");//event is bubbling meaning movinf grom the element to the parent
+   
+    },false)
+    //lets see the capturing mode basically when we set the optional value to true  it becomes capturing mode and if its false then it becomes bubbling mode
+      document.getElementById('images').addEventListener('click',function(event){
+        // console.log("ul clicked")
+    },true)
+    document.getElementById('owl').addEventListener('click',function(event){
+        // console.log("owl clicked agian");//event is capturing meaning moving grom the parent to element
+   
+    },true)
+    //to prevent the event from bubbling/capturing we ca use stopPropagation
+    document.getElementById('owl').addEventListener('click',function(event){
+        // console.log("owl clicked agian");//event is capturing meaning moving grom the parent to element
+        event.stopPropagation
+    },true);
+    //preventdefault=this will stop the browser from doing its default action like submitting form etc.
+    document.getElementById('google').addEventListener('click',function(event){
+        // console.log("gogole baba ki jay");
+        event.preventDefault();
+    })
+    //small project to demonstrate eventlistner-to remove any li when clicked
+    document.querySelector('#images').addEventListener('click',function(event){
+        if(event.target.tagName=='IMG'){
+            console.log(event.id);
+            let removes=event.target.parentNode;
+            removes.remove()
+        }else console.log(`not an image clicked it was a ${event.target.tagName}`)
+    })
+   </script>
+</body>
+</body>
+</html>

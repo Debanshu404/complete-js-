@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EVENT AND OTHER DOM PROPERTIES</title>
+</head>
+<body>
+    <div class="container">
+        <div class="box"></div>
+        <div id="update">
+            hey there I am slayer op
+        </div>
+        <button onclick="update()">update content!</button>
+        <button onclick="beforeBegin()">add element before the div update</button>
+        <button onclick="afterBegin()">add element after the div update</button>
+        <button onclick="beforeEnd()">add element before the end of the div update</button>
+        <button onclick="afterEnd()">add element after the end of the div update</button>
+        <div class="outer">
+            <p>this is me with html before ohhh yeahhhshshhshshshh</p>
+        </div>
+        <button onclick="updateHtml()">update the div</button>
+        <div id="exampleDiv">
+            Original Text Content
+        </div>
+        <button onclick="changeContentType()">content before call</button> 
+
+        <div id="hiddenProperty">
+            hey I am here
+        </div>
+        <button onclick="hide()">hide me </button>
+        <button onclick="show()">show me </button>
+        <div id="hasdiv" data-custom="data-curatedbyy=me">
+            This div has a custom data attribute.
+        </div>
+          
+        <button onclick="checkAttribute()">Check Attribute</button>
+        <button onclick="getAttribute()">get attribute of the above</button>
+          
+        <div id="parent">
+            <p>hey I am a div here</p>
+        </div>
+        <button onclick="prependChild()">prepend elements</button>
+        <button onclick="beforeChild()">before elements</button>
+        <button onclick="afterChild()">After elements</button>
+          
+        <div class="old">
+            hey I am an old div 
+        </div>
+        <div class="new">
+            hey I am a new div over the old div
+        </div>
+        <button onclick="newDiv()">click me to change the content of upper div</button>
+        <button onclick="oldDiv()">click me to change the content of upper div</button>
+        
+    </div>
+    <script>
+        function update() {
+            let box = document.getElementById("update");
+            box.innerHTML = 'hey there you have been hacked ';
+        }
+
+        function updateHtml() {
+            let Odiv = document.getElementById("outer");
+            Odiv.outerHTML = '<div id="newDiv">"heyy youtube hello"<p>hey this is new element inside a new div</p></div>';
+        }
+
+        function changeContentType() {
+            let textDiv = document.getElementById("exampleDiv");
+            textDiv.textContent = `updated content is this`;
+        }
+
+        function hide() {
+            let hide = document.getElementById("hiddenProperty");
+            hide.hidden = true;
+        }
+
+        function show() {
+            let show = document.getElementById("hiddenProperty");
+            show.hidden = false;
+        }
+
+        function checkAttribute() {
+            let has = document.getElementById("hasdiv");
+            let check = has.hasAttribute("data-custom");
+            if (check) {
+                alert(`yes it has data ${check}`);
+            } else alert("no data")
+        }
+
+        function getAttribute() {
+            let gets = document.getElementById("hasdiv");
+            let get = gets.getAttribute("data-custom");
+            console.log(`your attribute is ${get}`);
+        }
+
+        let div = document.createElement("div");
+        div.innerHTML = "I have been inserted inside the div <i>ok</i> ";
+        div.setAttribute("class", "jsDiv"); 
+        document.querySelector(".container").appendChild(div); 
+
+        function prependChild() {
+            let parent = document.querySelector("#parent");
+            let child1 = document.createElement('div');
+            child1.textContent = "hey I am child 1";
+            let child2 = document.createElement('div');
+            child2.textContent = "hey I am child 2";
+            parent.prepend(child1, child2);
+        }
+
+        function beforeChild() {
+            let parent = document.querySelector("#parent");
+            let child1 = document.createElement('div');
+            child1.textContent = "hey I am child 1 before it";
+            let child2 = document.createElement('div');
+            child2.textContent = "hey I am child 2 before it";
+            parent.before(child1, child2);
+        }
+
+        function afterChild() {
+            let parent = document.querySelector("#parent");
+            let child1 = document.createElement('div');
+            child1.textContent = "hey I am child 1 after it";
+            let child2 = document.createElement('div');
+            child2.textContent = "hey I am child 2 after it";
+            parent.after(child1, child2);
+        }
+
+        function newDiv() {
+            let oldElement = document.querySelector(".old");
+            let newElement = document.querySelector(".new");
+            oldElement.replaceWith(newElement);
+        }
+
+        function oldDiv() {
+            let oldElement = document.querySelector(".old");
+            let newElement = document.querySelector(".new");
+            newElement.replaceWith(oldElement);
+        }
+
+        function beforeBegin() {
+            let elementDiv = document.getElementById("update");
+            let createDiv = document.createElement("div");
+            createDiv.setAttribute("class", "updatedDiv");
+            createDiv.textContent = "Hey I am an updated div before the 'update' div";
+            elementDiv.insertAdjacentHTML('beforebegin', createDiv.outerHTML);
+        }
+
+        function afterBegin() {
+            let elementDiv = document.getElementById("update");
+            let createDiv = document.createElement("div");
+            createDiv.setAttribute("class", "updatedDiv");
+            createDiv.textContent = "Hey I am an updated div after the 'update' div";
+            elementDiv.insertAdjacentHTML('afterbegin', createDiv.outerHTML);
+        }
+
+        function beforeEnd() {
+            let elementDiv = document.getElementById("update");
+            let createDiv = document.createElement("div");
+            createDiv.setAttribute("class", "updatedDiv");
+            createDiv.textContent = "Hey I am an updated div before the end of the 'update' div";
+            elementDiv.insertAdjacentHTML('beforeend', createDiv.outerHTML);
+        }
+
+        function afterEnd() {
+            let elementDiv = document.getElementById("update");
+            let createDiv = document.createElement("div");
+            createDiv.setAttribute("class", "updatedDiv");
+            createDiv.textContent = "Hey I am an updated div after the end of the 'update' div";
+            elementDiv.insertAdjacentHTML('afterend',createDiv.outerHTML);
+        }
+    </script>
+</body>
+</html>
